@@ -28,7 +28,7 @@ int main(){
     //Logical Operator
     cout << "logical       : " << (a < b && b > c) << endl;
     cout << "logical       : " << (a < b || b > c) << endl;
-    cout << "logical       : " << (a < b != b > c) << endl; // (!) is logical (!=) is comparison operator
+    cout << "logical       : " << !(a < b && b > c) << endl;
 
     return 0;
 }
