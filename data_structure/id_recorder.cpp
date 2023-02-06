@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main(){
@@ -20,11 +21,38 @@ int main(){
                     cout << "Enter ID to Insert: ";
                     cin >> arr[0+n];
                     break;
+                case 2:
+                    int delete_id;
+                    cout << "ID to Delete: ";
+                    cin >> delete_id;
+                    for(int k = 0; k < insertCounter; k++){
+                        if(arr[k] == delete_id){
+                            arr[k] = NULL;
+                        }
+                    }
+                    break;
+                case 3:
+                    {
+                        int from, to;
+                        cout << "ID to Update: ";
+                        cin >> from;
+                        cout << "ID to Replace with: ";
+                        cin >> to;
+                        
+                        for(int l = 0; l < insertCounter; l++){
+                            if(arr[l] == from){
+                                arr[l] = to;
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
                 case 4:
                     int id;
                     cout << "ID to Search: ";
                     cin >> id;
-                    for(int j = 0; j<insertCounter; j++){
+                    for(int j = 0; j < insertCounter; j++){
                         if(arr[j] == id){
                             cout << id << " Exist's in index: [" << j << "]" << endl;
                             break;
@@ -33,9 +61,15 @@ int main(){
                         }
                     }
                     break;
+                case 5:
+                    {
+                        int n = sizeof(arr)/sizeof(arr[0]);
+                        sort(arr, arr+n);
+                        break;
+                    }
                 // Display Operation
                 case 6:
-                    for(int i = 0; i<insertCounter; i++){
+                    for(int i = 0; i < insertCounter; i++){
                         cout << arr[i]<< " ";
                     }
                     break;
